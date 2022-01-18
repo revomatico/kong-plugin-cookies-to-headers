@@ -14,10 +14,14 @@ function CookieToHeaders:access(plugin_conf)
     if not oauthToken then
         ngx.log(ngx.ERR, err)
     else
-        ngx.req.set_header("Authorization", "Bearer " .. oauthToken)
+        if plugin_conf.header_name == "" then
+          ngx.req.set_header("Authorization", "Bearer " .. oauthToken)
+        else
+          ngx.req.set_header(plugin_conf.header_name, oauthToken)
+        end
     end
 end
 
-CookieToHeaders.PRIORITY = 1010
+CookieToHeaders.PRIORITY = 900
 
 return CookieToHeaders

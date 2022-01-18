@@ -1,26 +1,27 @@
 # kong-plugin-cookies-to-headers
+
 A Kong plugin that will add Authorization header from cookie.
 
 ## How it works
 
 When enabled, this plugin will add new headers to requests based on set cookie. For example, if the cookie value is set like this
 
-```
+```ini
 name=value
 oauthtoken=13ca678d2aa8454599678e792266ea96
 ```
 
 then the following headers would be added
 
-```
-Authorization   : Bearer 13ca678d2aa8454599678e792266ea96
+```http
+Authorization: Bearer 13ca678d2aa8454599678e792266ea96
 ```
 
 ## Install
 
 Install luarocks and run the following command
 
-```
+```bash
 luarocks install kong-plugin-cookies-to-headers
 ```
 
@@ -33,11 +34,12 @@ curl -X POST http://localhost:8001/apis/{api_id}/plugins \
 --data "name=cookies-to-headers" \
 --data "config.cookie_name=cookieName"
 ```
-|Form Parameter | Required   | Description                                                                  |
-|---------------|------------|------------------------------------------------------------------------------|
-| `name`        | *required* |The name of the plugin to use, in this case: `cookies-to-headers`             |
-| `cookie_name` | *optional* |The name of the cookie which you want to convert into Authorization header    |
 
+| Form Parameter | Required   | Description                                                                                   |
+| -------------- | ---------- | --------------------------------------------------------------------------------------------- |
+| `name`         | _required_ | The name of the plugin to use, in this case: `cookies-to-headers`                             |
+| `cookie_name`  | _optional_ | The name of the cookie which you want to convert into Authorization header                    |
+| `header_name`  | _optional_ | The name of the header to be injected instead of Authorization header, like `X-JWT-Assertion` |
 
 ## License
 
@@ -47,7 +49,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+<http://www.apache.org/licenses/LICENSE-2.0>
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
