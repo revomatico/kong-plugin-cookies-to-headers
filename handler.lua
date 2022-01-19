@@ -9,15 +9,15 @@ function CookieToHeaders:access(plugin_conf)
     local cookie = require "resty.cookie"
 
     local ck = cookie:new()
-    local oauthToken, err = ck:get(plugin_conf.cookie_name)
+    local cookieValue, err = ck:get(plugin_conf.cookie_name)
 
-    if not oauthToken then
+    if not cookieValue then
         ngx.log(ngx.ERR, err)
     else
-        if plugin_conf.header_name == "" then
-          ngx.req.set_header("Authorization", "Bearer " .. oauthToken)
+        if string.lower(plugin_conf.header_name) == "authorization" then
+          ngx.req.set_header("Authorization", "Bearer " .. cookieValue)
         else
-          ngx.req.set_header(plugin_conf.header_name, oauthToken)
+          ngx.req.set_header(plugin_conf.header_name, cookieValue)
         end
     end
 end

@@ -35,11 +35,11 @@ curl -X POST http://localhost:8001/apis/{api_id}/plugins \
 --data "config.cookie_name=cookieName"
 ```
 
-| Form Parameter | Required   | Description                                                                                   |
-| -------------- | ---------- | --------------------------------------------------------------------------------------------- |
-| `name`         | _required_ | The name of the plugin to use, in this case: `cookies-to-headers`                             |
-| `cookie_name`  | _optional_ | The name of the cookie which you want to convert into Authorization header                    |
-| `header_name`  | _optional_ | The name of the header to be injected instead of Authorization header, like `X-JWT-Assertion` |
+| Form Parameter | Required   | Description                                                                                                 |
+| -------------- | ---------- | ----------------------------------------------------------------------------------------------------------- |
+| `name`         | _required_ | The name of the plugin to use, in this case: `cookies-to-headers`                                           |
+| `cookie_name`  | _optional_ | The name of the cookie which you want to inject into Authorization header                                   |
+| `header_name`  | _optional_ | The name of the header to be injected instead of the default `Authorization` header, like `X-JWT-Assertion` |
 
 ## License
 
