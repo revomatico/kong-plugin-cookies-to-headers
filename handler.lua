@@ -4,7 +4,6 @@ local CookieToHeaders = {
 }
 
 function CookieToHeaders:access(plugin_conf)
-    CookieToHeaders.super.access(self)
     local cookie = require "resty.cookie"
 
     local ck = cookie:new()
