@@ -11,13 +11,17 @@ return {
       config = {
         type = "record",
         fields = {
-          cookie_name = {
-            type = "string",
-            default = "SESSION"
+          {
+            cookie_name = {
+              type = "string",
+              default = "SESSION"
+            },
           },
-          header_name = {
-            type = "string",
-            default = "Authorization"
+          {
+            header_name = {
+              type = "string",
+              default = "Authorization"
+            }
           }
         }
       }
