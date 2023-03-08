@@ -1,5 +1,5 @@
 package = "kong-plugin-cookies-to-headers"
-version = "1.2.0"
+version = "1.2-0"
 local pluginName = "cookies-to-headers"
 source = {
   url = "git://github.com/revomatico/kong-plugin-cookies-to-headers",
