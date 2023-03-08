@@ -1,8 +1,7 @@
-local CookieToHeaders = require("kong.plugins.base_plugin"):extend()
-
-function CookieToHeaders:new()
-    CookieToHeaders.super.new(self, "cookies-to-headers")
-end
+local CookieToHeaders = {
+  VERSION = "1.2.0",
+  PRIORITY = 1000,
+}
 
 function CookieToHeaders:access(plugin_conf)
     CookieToHeaders.super.access(self)
@@ -21,7 +20,5 @@ function CookieToHeaders:access(plugin_conf)
         end
     end
 end
-
-CookieToHeaders.PRIORITY = 900
 
 return CookieToHeaders
